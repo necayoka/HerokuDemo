@@ -32,14 +32,11 @@ public class Dao {
 	static {
 		try {
 			Properties prop = new Properties();
-			prop.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
-			prop.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/gradovi");
-			prop.setProperty("hibernate.connection.username", "root");
-			prop.setProperty("hibernate.connection.password", "panzer");
-			prop.setProperty("dialect", "org.hibernate.dialect.MySQLDialect");
-			prop.setProperty("hbm2ddl.auto", "update");
-			prop.setProperty("show_sql", "true");
-			prop.setProperty("format_sql", "true");
+			prop.setProperty("hibernate.connection.driver_class", "org.postgresql.Driver");	//FIX
+			prop.setProperty("hibernate.connection.url", "jdbc:postgresql://ec2-50-17-21-170.compute-1.amazonaws.com:5432/dbufblhturvsrt");	//FIX
+			prop.setProperty("hibernate.connection.username", "edmrgjfgpxkfyr");	//FIX
+			prop.setProperty("hibernate.connection.password", "95dcea6166e61595ad7f84bd6d94f562e02e9c9bd2095f2d75b6199688b2d9d7");	//FIX
+			prop.setProperty("dialect", "org.hibernate.dialect.PostgreSQLDialect");	//FIX
 			
 			concreteSessionFactory = new AnnotationConfiguration().addPackage("com.test").addProperties(prop).addAnnotatedClass(Grad.class).buildSessionFactory();
 		} catch (Throwable e) {
